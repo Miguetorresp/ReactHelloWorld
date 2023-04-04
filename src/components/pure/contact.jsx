@@ -5,15 +5,11 @@ import { Contact } from '../../models/contact.class';
 
 const ContactComponent = ({ contact }) => {
 
-    const changeContactState=()=>{
-        console.log('cambia');
-    }
-
-    const [connecting, setconnecting] = useState(contact.connecting);
+    const [connecting, setConnecting] = useState(contact.connecting);
     const change = () => {
         //Actualizamos el state
         const respConnecting = !connecting;
-        setconnecting(respConnecting)
+        setConnecting(respConnecting)
         contact.connecting = respConnecting;
     }
 
@@ -26,7 +22,7 @@ const ContactComponent = ({ contact }) => {
            <p>State: {connecting ? 'Contact OnLine':'Contact Disabled'}</p> 
         
 
-            <button onClick={ change } >change</button>
+            <button onClick={ ()=> setConnecting(!connecting) } >change</button>
 
 
         </div>
